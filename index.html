@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Code 8 - Reordering presentation</title>
+    <link href="css/reset.css" type="text/css" rel="stylesheet">
+    <link href="./js/reveal.js-3.6.0/css/reveal.css" type="text/css" rel="stylesheet">
+    <link href="./js/reveal.js-3.6.0/css/theme/black.css" type="text/css" rel="stylesheet">
+    <link href="css/main.css" type="text/css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? './js/reveal.js-3.6.0/css/print/pdf.css' : './js/reveal.js-3.6.0/css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="reveal">
+        <div class="slides">
+          <section>Slide 1</section>
+          <section>Slide 2</section>
+        </div>
+      </div>
+    </div>
+    <script src="./js/reveal.js-3.6.0/lib/js/head.min.js"></script>
+    <script src="./js/reveal.js-3.6.0/js/reveal.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

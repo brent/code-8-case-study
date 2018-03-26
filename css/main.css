@@ -1,0 +1,24 @@
+.reveal .slides {
+}
+
+.reveal .slides .present {
+  padding: 0;
+}
+
+.reveal .slides .present,
+.reveal .slides .slide-container {
+  height: 100%;
+}
+
+.reveal .slides .slide-container {
+  display: grid !important;
+  grid-template-columns: 6.9% 4.4% 34% 4.4% 13.6% 29.4% 7.2%;
+  grid-template-rows: 11.1% 38.9% 38.9% 11.1%;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+}
+
+.reveal .slides .slide-container .slide-item {
+  display: flex;
+}
+

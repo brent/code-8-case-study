@@ -3,7 +3,6 @@
     <title>Code 8 - Reordering presentation</title>
     <link href="./css/reset.css" type="text/css" rel="stylesheet">
     <link href="./js/reveal.js-3.6.0/css/reveal.css" type="text/css" rel="stylesheet">
-    <link href="./js/reveal.js-3.6.0/css/theme/black.css" type="text/css" rel="stylesheet">
     <link href="./css/main.css" type="text/css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <script>
@@ -18,93 +17,194 @@
     <div class="wrapper">
       <div class="reveal">
         <div class="slides">
-          <section>
+
+          <!-- title slide -->
+          <section class="title-slide">
             <div class="slide-container">
-              <div class="slide-item slide-top-left">
-                1
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                2
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                3
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                4
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                5
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                6
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                7
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                8
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                9
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                10
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                11
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                12
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                13
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                14
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                15
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                16
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                17
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                18
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                19
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                20
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                21
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                22
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                23
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                24
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                25
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                26
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                27
-              </div><!-- END .slide-item -->
-              <div class="slide-item slide-top-left">
-                28
-              </div><!-- END .slide-item -->
+              <div class="left-content-top-margin">
+                <img class="logo" src="./img/logo.png" srcset="./img/logo@2x.png 1000w" alt="Brent Meyer logo">
+              </div>
+              <div class="right-content">
+                <h1 class="page-heading">Case study</h1>
+                <h2 class="page-subheading">Easy reorder</h2>
+              </div><!-- END .right-content -->
+            </div><!-- END .slide-content -->
           </section>
+
+          <!-- Slide 1: Initial user story -->
+          <section class="initial-user-story">
+            <div class="slide-container">
+              <div class="right-content">
+                <h1 class="page-heading">Initial user story</h1>
+                <h2 class="page-subheading">&ldquo;As a user I should be able to place an order which I have previously made&rdquo;</h2>
+              </div><!-- END .right-content -->
+            </div><!-- END .slide-content -->
+          </section>
+
+          <!-- Slide 2: modified user story -->
+          <section class="modified-user-story">
+            <div class="slide-container">
+              <div class="right-content">
+                <h1 class="page-heading">Modified user story</h1>
+                <h2 class="page-subheading">&ldquo;As a user I should be able to <span class="text-purple-highlight">quickly</span> <span class="text-yellow-highlight">reorder items</span> I have previously purchased&rdquo;</h2>
+                <div class="fragment">
+                  <h2 class="page-subheading"><span class="text-purple-highlight">Speed should be a success metric<span></h2>
+                </div><!-- END .fragment -->
+                <div class="fragment">
+                  <h2 class="page-subheading"><span class="text-yellow-highlight">For a user, products are more relevant than orders</span></h2>
+                </div><!-- END .fragment -->
+              </div><!-- END .right-content -->
+            </div><!-- END .slide-content -->
+          </section>
+
+
+          <!-- Slide 3: orders list -->
+          <section class="orders-list">
+            <div class="slide-container">
+              <div class="left-content-top-margin centered-content">
+                <img class="left-content-img content-img content-img-to-size" src="./img/orders-list-default.png" srcset="./img/orders-list-default@2x.png 1000w">
+              </div>
+              <div class="right-content">
+                <h1 class="page-heading">Orders list</h1>
+                <h2 class="page-subheading">Most ordered items</h2>
+                <h2 class="page-subheading">All items, with sort options</h2>
+              </div><!-- END .right-content -->
+            </div><!-- END .slide-content -->
+          </section>
+
+          <!-- Slide 4: checkout -->
+          <section class="checkout">
+            <div class="slide-container">
+              <div class="left-content-no-margin">
+                <img class="left-content-img-top content-img content-img-to-size" src="./img/checkout-single-cart.png" srcset="./img/checkout-single-cart@2x.png 1000w">
+                <img class="left-content-img-bottom content-img content-img-to-size" src="./img/checkout-multi-cart.png" srcset="./img/checkout-multi-cart@2x.png 1000w">
+              </div>
+              <div class="right-content">
+                <h1 class="page-heading">Checkout</h1>
+                <h2 class="page-subheading">List of products in cart</h2>
+                <h2 class="page-subheading">Quantity change</h2>
+                <h2 class="page-subheading">Shipping and payment detail editing</h2>
+              </div><!-- END .right-content -->
+            </div><!-- END .slide-content -->
+          </section>
+
+          <!-- Slide 5: joke-done -->
+          <section class="joke-done">
+            <div class="slide-container">
+              <div class="right-content">
+                <h1 class="page-heading">Order placed&mdash;we're done</h1>
+                <h2 class="page-subheading">Thanks for your time!</h2>
+              </div><!-- END .right-content -->
+            </div><!-- END .slide-content -->
+          </section>
+
+          <!-- Slide 6: orders-details -->
+          <section class="orders-detail">
+            <div class="slide-container">
+              <div class="left-content-no-margin">
+                <img class="left-content-img content-img content-img-fit" src="./img/orders-list-huge.png" srcset="./img/orders-list-huge@2x.png 1000w">
+              </div>
+              <div class="right-content">
+                <h1 class="page-heading">Orders, a closer look</h1>
+                <div class="fragment fragment-sections">
+                  <h2 class="page-subheading">Two sections:<br>Most ordered products,<br>All orders</h2>
+                </div>
+                <div class="fragment fragment-search">
+                  <h2 class="page-subheading">Product search</h2>
+                  <div class="fragment fragment-search-2"></div>
+                </div>
+                <div class="fragment fragment-sort-1">
+                  <h2 class="page-subheading">All orders sort by</h2>
+                </div>
+                <div class="fragment fragment-sort-2"></div>
+                <div class="fragment fragment-sort-3"></div>
+              </div><!-- END .right-content -->
+            </div><!-- END .slide-content -->
+          </section>
+
+          <!-- Slide 7: add-to-cart -->
+          <section class="add-to-cart">
+            <div class="slide-container">
+              <div class="left-content-no-margin">
+                <img class="left-content-img content-img content-img-fit" src="./img/orders-list-huge.png" srcset="./img/orders-list-huge@2x.png 1000w">
+              </div>
+              <div class="right-content">
+                <h1 class="page-heading">Add to cart&mdash;what's that?</h1>
+                <div class="fragment fragment-cart-bar-1"></div>
+                <div class="fragment">
+                  <h2 class="page-subheading">Decouples items from orders</h2>
+                </div>
+                <div class="fragment">
+                  <h2 class="page-subheading">Avoids ping ponging</h2>
+                </div>
+                <div class="fragment fragment-cart-bar-2"></div>
+                <div class="fragment">
+                  <h2 class="page-subheading">Opportunity to delight</h2>
+                </div>
+                <div class="fragment fragment-cart-bar-3"></div>
+              </div><!-- END .right-content -->
+            </div><!-- END .slide-content -->
+          </section>
+
+          <!-- Slide 8: checkout -->
+          <section class="checkout">
+            <div class="slide-container">
+              <div class="left-content-no-margin">
+                <img class="left-content-img-top content-img content-img-to-size" src="./img/checkout-single-cart.png" srcset="./img/checkout-single-cart@2x.png 1000w">
+                <img class="left-content-img-bottom content-img content-img-to-size" src="./img/checkout-multi-cart.png" srcset="./img/checkout-multi-cart@2x.png 1000w">
+              </div>
+              <div class="right-content">
+                <h1 class="page-heading">Hey, this looks familiar</h1>
+                <h2 class="page-subheading">Checking out again</h2>
+              </div><!-- END .right-content -->
+            </div><!-- END .slide-content -->
+          </section>
+
+          <!-- Slide 9: wrap-up -->
+          <section class="wrap-up">
+            <div class="slide-container">
+              <div class="right-content">
+                <h1 class="page-heading">Wrap up</h1>
+                <div class="fragment">
+                  <h2 class="page-subheading">&ldquo;As a user I should be able to <span class="text-purple-highlight">quickly</span> <span class="text-yellow-highlight">reorder items</span> I have previously purchased&rdquo;</h2>
+                </div>
+                <div class="fragment">
+                  <h2 class="page-subheading">Stats for orders would be helpful early on</h2>
+                </div>
+                <div class="fragment">
+                  <h2 class="page-subheading">Validate cart bar</h2>
+                </div>
+                <div class="fragment">
+                  <h2 class="page-subheading">Watch reorder completion</h2>
+                </div>
+              </div><!-- END .right-content -->
+            </div><!-- END .slide-content -->
+          </section>
+
+          <!-- Slide 10: questions -->
+          <section class="questions">
+            <div class="slide-container">
+              <div class="left-content-no-margin centered-content">
+                <img class="left-content-img content-img content-img-fit" src="./img/orders-list-huge.png" srcset="./img/orders-list-huge@2x.png 1000w">
+              </div>
+              <div class="right-content">
+                <h1 class="page-heading">Wrap up</h1>
+                <h2 class="page-subheading">Questions?</h2>
+              </div><!-- END .right-content -->
+            </div><!-- END .slide-content -->
+          </section>
+
+          <!-- Slide 11: end -->
+          <section class="end">
+            <div class="slide-container">
+              <div class="right-content">
+                <h1 class="page-heading">Take care</h1>
+                <h2 class="page-subheading">Thank you for you time :)</h2>
+                <h2 class="page-subheading">bit.ly.com/XXXXXX</h2>
+              </div><!-- END .right-content -->
+            </div><!-- END .slide-content -->
+          </section>
+
         </div>
       </div>
     </div>

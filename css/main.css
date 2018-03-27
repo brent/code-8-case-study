@@ -7,6 +7,16 @@
   --highlight-yellow: #ffd900;
 }
 
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up-to-top {
+  from { transform: translateY(11.1%); }
+  to { transform: translateY(0); }
+}
+
 @keyframes slide-from-bottom {
   0% { 
     transform: translateY(50vh);
@@ -49,8 +59,8 @@ body {
 }
 
 .reveal section img.logo {
-  width: 6rem;
-  height: 4.185rem;
+  width: 3rem;
+  height: 2.0925rem;
   margin-top: 0;
   margin-bottom: 4rem;
 }
@@ -152,6 +162,10 @@ body {
   max-width: 100%;
 }
 
+.title-slide .left-content-top-margin {
+  text-align: right;
+}
+
 .checkout .left-content-no-margin {
   position: relative;
 }
@@ -175,9 +189,16 @@ body {
 
 .orders-detail .left-content-no-margin {
   position: relative;
+  overflow-y: scroll;
 }
 
-.orders-detail .content-img {
+.orders-detail .left-content-no-margin::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.orders-detail .content-img,
+.add-to-cart .content-img {
   border-radius: 0;
 }
 
@@ -189,14 +210,16 @@ body {
   transform: translateY(-50vh);
 }
 
-.orders-detail .content-img.action-sheet {
+.orders-detail .content-img.action-sheet,
+.add-to-cart .content-img.cart-bar {
   transform: none;
   position: absolute;
   bottom: 0;
   z-index: 10;
 }
 
-.orders-detail .action-sheet-overlay {
+.orders-detail .action-sheet-overlay,
+.add-to-cart .cart-bar-overlay {
   position: absolute;
   width: 100%;
   min-height: 100%;
@@ -204,3 +227,34 @@ body {
   z-index: 9;
 }
 
+.add-to-cart .cart-bar-overlay {
+  animation: 3s fade-in;
+  background: rgba(0,0,0,0.33);
+}
+
+.add-to-cart .left-content-img {
+}
+
+.add-to-cart .left-content-top-margin,
+.add-to-cart .left-content-no-margin {
+  position: relative;
+}
+
+.wrap-up .deep-content {
+  grid-column: 2 / 4;
+  grid-row: ;
+}
+
+.questions .left-content-no-margin {
+  overflow-y: scroll;
+}
+
+.questions .left-content-no-margin .content-img {
+  position: relative;
+  top: 11%;
+}
+
+.questions .left-content-no-margin::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}

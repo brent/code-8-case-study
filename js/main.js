@@ -17,40 +17,117 @@
   });
 
   Reveal.addEventListener('slidechanged', function(event) {
-    document.querySelector('.action-sheet').remove();
-    document.querySelector('.action-sheet-overlay').remove();
-    document.querySelector('.cart-bar').remove();
-    document.querySelector('.cart-bar-overlay').remove();
   });
 
   Reveal.addEventListener('fragmentshown', function(event) {
 
+    var prevImgs = [];
+    var prevOverlays = [];
+
+    function removeFragmentSort() {
+      if (img.classList.contains('fragment-sort')) {
+        console.log('remove fragment-sort');
+        img.classList.remove('fragment-sort');
+      }
+    }
+
+    function removeOverlays() {
+      if (document.querySelector('.action-sheet')) {
+        document.querySelector('.action-sheet').remove();
+        document.querySelector('.action-sheet-overlay').remove();
+      }
+
+      if (document.querySelector('.cart-bar')) {
+        document.querySelector('.cart-bar').remove();
+        document.querySelector('.cart-bar-overlay').remove();
+      }
+    }
+
+    function imageForFragment(fragment, img, newImgSrc, newImgSrcset) {
+      if (prevImgs[fragment] == img) {
+        img.src = prevImgs[fragment].src;
+        img.srcset = prevImgs[fragment].srcset;
+
+        removeOverlays();
+      } else {
+        prevImgs.push(img);
+
+        img.src = newImgSrc;
+        img.srcset = newImgSrcset;
+      }
+    }
+
+    function overlayForFragment(fragment, img, overlayImgSrc, overlayImgSrcset, overlayClass) {
+      if (document.querySelector('.action-sheet') ||
+          document.querySelector('.cart-bar')) {
+        removeOverlays();
+      }
+
+      var newImgNode = img.cloneNode(true);
+      newImgNode.classList.add(overlayClass);
+      newImgNode.src = overlayImgSrc;
+      newImgNode.srcset = overlayImgSrcset;
+
+      var overlay = document.createElement("div");
+      var overlayBgClass = `${overlayClass}-overlay`;
+      overlay.classList.add(overlayBgClass);
+
+      var parent = img.parentNode;
+
+      var overlayEls = {
+        img: {
+          class: overlayClass,
+          src: overlayImgSrc,
+          srcset: overlaySrcset
+        },
+        overlay: {
+          el: overlay,
+          class: overlayBgClass
+        },
+        parent: parent
+      };
+
+      prevOverlays.push(overlayEls);
+
+      parent.prepend(overlay);
+      parent.prepend(newImgNode);
+    }
+
     if (event.fragment.classList.contains("fragment-sections")) {
       var img = document.querySelector('.orders-detail .left-content-img');
-      var currentImgSrc = './img/orders-list-huge.png';
-      var currentImgSrcset = './img/orders-list-huge@2x.png';
-      img.src = currentImgSrc;
-      img.srcset = currentImgSrcset;
+      var newImgSrc = './img/orders-list-huge.png';
+      var newImgSrcset = './img/orders-list-huge@2x.png';
+
+      removeFragmentSort();
+      imageForFragment(0, img, newImgSrc, newImgSrcset);
     }
 
     if (event.fragment.classList.contains("fragment-search")) {
       var img = document.querySelector('.orders-detail .left-content-img');
-      var currentImgSrc = './img/orders-list-huge-search-default.png';
-      var currentImgSrcset = './img/orders-list-huge-search-default@2x.png';
-      img.src = currentImgSrc;
-      img.srcset = currentImgSrcset;
+      var newImgSrc = './img/orders-list-huge-search-default.png';
+      var newImgSrcset = './img/orders-list-huge-search-default@2x.png';
+
+      if (img.classList.contains('fragment-sort')) {
+        console.log('remove fragment-sort');
+        img.classList.remove('fragment-sort');
+      }
+
+      removeFragmentSort();
+      imageForFragment(1, img, newImgSrc, newImgSrcset);
     }
 
     if (event.fragment.classList.contains("fragment-search-2")) {
       var img = document.querySelector('.orders-detail .left-content-img');
+      var newImgSrc = './img/orders-list-huge-search-results.png';
+      var newImgSrcset = './img/orders-list-huge-search-results@2x.png';
+
       if (img.classList.contains('fragment-sort')) {
+        console.log('remove fragment-sort');
         img.classList.remove('fragment-sort');
       }
 
-      var currentImgSrc = './img/orders-list-huge-search-results.png';
-      var currentImgSrcset = './img/orders-list-huge-search-results@2x.png';
-      img.src = currentImgSrc;
-      img.srcset = currentImgSrcset;
+      removeFragmentSort();
+      imageForFragment(2, img, newImgSrc, newImgSrcset);
     }
 
     if (event.fragment.classList.contains("fragment-sort-1")) {
@@ -61,17 +138,10 @@
     if (event.fragment.classList.contains("fragment-sort-2")) {
       var img = document.querySelector('.orders-detail .left-content-img');
 
-      var actionSheetImg = img.cloneNode(true);
-      actionSheetImg.classList.add("action-sheet");
-      actionSheetImg.src = './img/action-sheet-overlay.png';
-      actionSheetImg.srcset = './img/action-sheet-overlay@2x.png';
+      var actionSheetImgSrc = './img/action-sheet-overlay.png';
+      var actionSheetImgSrcset = './img/action-sheet-overlay@2x.png';
 
-      var actionSheetOverlay = document.createElement("div");
-      actionSheetOverlay.classList.add("action-sheet-overlay");
-
-      var parent = img.parentNode;
-      parent.prepend(actionSheetOverlay);
-      parent.prepend(actionSheetImg);
+      overlayForFragment(0, img, actionSheetImgSrc, actionSheetImgSrcset, 'action-sheet');
     }
 
     if (event.fragment.classList.contains("fragment-sort-3")) {
@@ -79,10 +149,10 @@
       document.querySelector('.action-sheet-overlay').remove();
       var img = document.querySelector('.orders-detail .left-content-img');
 
-      var currentImgSrc = './img/orders-list-huge-most-ordered.png';
-      var currentImgSrcset = './img/orders-list-huge-most-ordered@2x.png';
-      img.src = currentImgSrc;
-      img.srcset = currentImgSrcset;
+      var newImgSrc = './img/orders-list-huge-most-ordered.png';
+      var newImgSrcset = './img/orders-list-huge-most-ordered@2x.png';
+
+      imageForFragment(4, img, newImgSrc, newImgSrcset);
     }
 
     if (event.fragment.classList.contains('fragment-slide-up')) {
@@ -90,18 +160,10 @@
 
     if (event.fragment.classList.contains("fragment-cart-bar-1")) {
       var img = document.querySelector('.add-to-cart .left-content-img');
+      var overlaySrc = './img/cart-bar-1.png';
+      var overlaySrcset = './img/cart-bar-1@2x.png';
 
-      var cartBarImg = img.cloneNode(true);
-      cartBarImg.classList.add("cart-bar");
-      cartBarImg.src = './img/cart-bar-1.png';
-      cartBarImg.srcset = './img/cart-bar-1@2x.png';
-
-      var actionSheetOverlay = document.createElement("div");
-      actionSheetOverlay.classList.add("cart-bar-overlay");
-
-      var parent = img.parentNode;
-      parent.prepend(actionSheetOverlay);
-      parent.prepend(cartBarImg);
+      overlayForFragment(1, img, overlaySrc, overlaySrcset, 'cart-bar');
     }
 
     if (event.fragment.classList.contains("fragment-cart-bar-2")) {
